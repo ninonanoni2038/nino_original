@@ -13,11 +13,34 @@ const cells = Array.from(document.querySelectorAll(".cell"));
 const scoreYouEl = document.getElementById("scoreYou");
 const scoreCpuEl = document.getElementById("scoreCpu");
 const scoreDrawEl = document.getElementById("scoreDraw");
+const scoreYouLabelEl = document.getElementById("scoreYouLabel");
 
 let state = Array(9).fill("");
 let gameOver = false;
 let turn = HUMAN;
 const score = { you: 0, cpu: 0, draw: 0 };
+
+function playerName() {
+  try {
+    const raw = localStorage.getItem("marubatsu_user");
+    if (!raw) return "あなた";
+    const user = JSON.parse(raw);
+    return user.name?.split(" ")[0] || "あなた";
+  } catch {
+    return "あなた";
+  }
+}
+
+function humanTurnLabel() {
+  return `${playerName()}の番です（○）`;
+}
+
+window.addEventListener("auth:changed", () => {
+  if (!gameOver && turn === HUMAN) {
+    statusEl.textContent = humanTurnLabel();
+  }
+  scoreYouLabelEl && (scoreYouLabelEl.textContent = `${playerName()}（○）`);
+});
 
 function render() {
   cells.forEach((cell, i) => {
@@ -102,7 +125,7 @@ function cpuMove() {
     return;
   }
   turn = HUMAN;
-  statusEl.textContent = "あなたの番です（○）";
+  statusEl.textContent = humanTurnLabel();
 }
 
 function handleCellClick(e) {
@@ -125,10 +148,12 @@ function reset() {
   gameOver = false;
   turn = HUMAN;
   cells.forEach((cell) => cell.classList.remove("win"));
-  statusEl.textContent = "あなたの番です（○）";
+  statusEl.textContent = humanTurnLabel();
   render();
 }
 
 cells.forEach((cell) => cell.addEventListener("click", handleCellClick));
 resetBtn.addEventListener("click", reset);
+statusEl.textContent = humanTurnLabel();
+if (scoreYouLabelEl) scoreYouLabelEl.textContent = `${playerName()}（○）`;
 render();

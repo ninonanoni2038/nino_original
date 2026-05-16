@@ -25,6 +25,68 @@ body {
   text-align: center;
 }
 
+.auth-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+  min-height: 40px;
+}
+
+.login-area {
+  display: flex;
+  justify-content: center;
+}
+
+.login-note {
+  margin: 0;
+  font-size: 12px;
+  color: #c53030;
+  background: #fff5f5;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.user-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f7fafc;
+  padding: 4px 8px 4px 4px;
+  border-radius: 999px;
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2d3748;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.signout-btn {
+  font-size: 12px;
+  padding: 4px 10px;
+  background: #e2e8f0;
+  color: #2d3748;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.signout-btn:hover {
+  background: #cbd5e0;
+}
+
 h1 {
   margin: 0 0 8px;
   font-size: 28px;

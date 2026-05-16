@@ -5,9 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>○×ゲーム</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
   </head>
   <body>
     <main class="container">
+      <header class="auth-bar">
+        <div id="loginArea" class="login-area">
+          <div id="gSignInBtn"></div>
+        </div>
+        <div id="userArea" class="user-area" hidden>
+          <img id="userAvatar" class="user-avatar" alt="" referrerpolicy="no-referrer" />
+          <span id="userName" class="user-name"></span>
+          <button id="signOutBtn" class="signout-btn">ログアウト</button>
+        </div>
+      </header>
       <h1>○×ゲーム</h1>
       <p class="status" id="status">あなたの番です（○）</p>
       <div class="board" id="board">
@@ -25,11 +36,13 @@
         <button id="reset" class="reset-btn">もう一度</button>
       </div>
       <div class="score">
-        <div><span class="label">あなた（○）</span><span id="scoreYou">0</span></div>
+        <div><span class="label" id="scoreYouLabel">あなた（○）</span><span id="scoreYou">0</span></div>
         <div><span class="label">CPU（×）</span><span id="scoreCpu">0</span></div>
         <div><span class="label">引き分け</span><span id="scoreDraw">0</span></div>
       </div>
     </main>
+    <script src="config.js"></script>
+    <script src="auth.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
