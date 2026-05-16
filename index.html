@@ -2,12 +2,34 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>○×ゲーム</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>更新したよ！</h1>
+    <main class="container">
+      <h1>○×ゲーム</h1>
+      <p class="status" id="status">あなたの番です（○）</p>
+      <div class="board" id="board">
+        <button class="cell" data-index="0" aria-label="セル1"></button>
+        <button class="cell" data-index="1" aria-label="セル2"></button>
+        <button class="cell" data-index="2" aria-label="セル3"></button>
+        <button class="cell" data-index="3" aria-label="セル4"></button>
+        <button class="cell" data-index="4" aria-label="セル5"></button>
+        <button class="cell" data-index="5" aria-label="セル6"></button>
+        <button class="cell" data-index="6" aria-label="セル7"></button>
+        <button class="cell" data-index="7" aria-label="セル8"></button>
+        <button class="cell" data-index="8" aria-label="セル9"></button>
+      </div>
+      <div class="controls">
+        <button id="reset" class="reset-btn">もう一度</button>
+      </div>
+      <div class="score">
+        <div><span class="label">あなた（○）</span><span id="scoreYou">0</span></div>
+        <div><span class="label">CPU（×）</span><span id="scoreCpu">0</span></div>
+        <div><span class="label">引き分け</span><span id="scoreDraw">0</span></div>
+      </div>
+    </main>
+    <script src="script.js"></script>
   </body>
 </html>
-s
